@@ -1,0 +1,36 @@
+mysql:
+  host: "localhost"
+  user: "root"
+  port: 3306
+  pass: "pass"
+  base: "minecraft"
+
+messages:
+  blocks:
+    break: "&8>> &cNie mozesz niszczyc na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+    place: "&8>> &cNie mozesz budowac na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  place_tnt: "&8>> &cNie mozesz stawiac TnT na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  throw_tnt: "&8>> &cNie mozesz uzywac Rzucanego TnT na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  break_beacon: "&8>> &cNie mozesz niszczyc Beacona na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  teleport_players: "&8>> &cNie mozesz teleportowac osob na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  open_chest: "&8>> &cNie mozesz otwierac skrzynek na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+  spilling_water_lava: "&8>> &cNie mozesz tego zrobic na terenie cuboida! Popros lidera o dostep &8( &f/uprawnienia &8)"
+
+  command:
+    no_guild: "&8>> &cNie posiadasz gildii!"
+    only_leader: "&8>> &cTylko lider moze uzyc tej komendy!"
+    correct_usage: "&8>> &7Poprawne uzycie: &c/uprawnienia <nick>"
+    manage_your_permissions: "&8>> &7Nie mozesz zarzadzaac swoimi uprawnieniami!"
+    has_not_guild: "&8>> &cTen gracz nie jest w zadnej gildii!"
+    player_offline: "&8>> &cPodany gracz jest offline!"
+    no_in_your_guild: "&8>> &cTen gracz nie jest w Twojej gildii!"
+
+settings:
+  #Nazwa rzucanego tnt
+  #Nazwa jest potrzebna do uprawnienia 'place_tnt'
+  name_throw_tnt: "&cRzucane TnT"
+  #Komendy zablokowane przy uprawnieniu 'teleport_players'
+  blocked_commands:
+    - "tpaccept"
+    - "etpaccept"
+    - "essentials:tpaccept"

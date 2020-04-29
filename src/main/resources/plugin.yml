@@ -1,0 +1,8 @@
+name: GuildPermissions
+version: 1.0
+author: KamlaX
+website: http://kamilokon.pl/
+main: me.kamlax.guildpermissions.GuildPermissionsPlugin
+
+commands:
+  uprawnienia:
