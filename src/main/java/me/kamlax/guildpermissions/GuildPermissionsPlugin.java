@@ -1,6 +1,6 @@
 package me.kamlax.guildpermissions;
 
-import me.kamlax.guildpermissions.command.PermissionsCommand;
+import me.kamlax.guildpermissions.command.GuildPermissionsCommand;
 import me.kamlax.guildpermissions.configuration.MainConfiguration;
 import me.kamlax.guildpermissions.inventory.GuildPermissionsInventory;
 import me.kamlax.guildpermissions.listener.InventoryClickListener;
@@ -25,7 +25,7 @@ public class GuildPermissionsPlugin extends JavaPlugin {
         new InventoryClickListener(this);
         new PlayerListeners(this);
         new PlayerTask(this).runTaskTimerAsynchronously(this, 60L, 100L);
-        getCommand("uprawnienia").setExecutor(new PermissionsCommand(this, guildPermissionsInventory));
+        getCommand("uprawnienia").setExecutor(new GuildPermissionsCommand(this));
     }
 
     public void onDisable() {
@@ -34,6 +34,10 @@ public class GuildPermissionsPlugin extends JavaPlugin {
 
     public DatabaseManager getDatabaseManager() {
         return databaseManager;
+    }
+
+    public GuildPermissionsInventory getGuildPermissionsInventory() {
+        return guildPermissionsInventory;
     }
 
     public UserManager getUserManager() {

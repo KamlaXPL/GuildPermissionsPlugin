@@ -22,14 +22,6 @@ public final class GuildPermissionsInventory {
         this.plugin = plugin;
     }
 
-    private static ItemStack glass() {
-        final ItemStack itemStack = new ItemStack(Material.STAINED_GLASS_PANE);
-        itemStack.setDurability((short) 15);
-        final ItemMeta itemMeta = itemStack.getItemMeta();
-        itemStack.setItemMeta(itemMeta);
-        return itemStack;
-    }
-
         public Inventory createGuildPermissionInventory(final Player player) {
             final UserData userData = this.plugin.getUserManager().getUser(player.getUniqueId());
             final String user = Bukkit.getPlayer(userData.getUuid()).getName();
@@ -84,7 +76,7 @@ public final class GuildPermissionsInventory {
                             ""));
 
             for (int i = 0; i < 27; ++i) {
-                inventory.setItem(i, glass());
+                inventory.setItem(i, new ItemBuilderHelper(Material.STAINED_GLASS_PANE, (short) 15));
             }
 
             inventory.setItem(10, break_blocks.build());

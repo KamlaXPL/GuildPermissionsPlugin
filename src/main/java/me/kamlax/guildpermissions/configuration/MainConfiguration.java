@@ -8,8 +8,8 @@ public class MainConfiguration {
     private final GuildPermissionsPlugin plugin;
     private String mysqlHost, mysqlUser, mysqlPass, mysqlBase;
     private int mysqlPort;
-    private String blocksBreak, blocksPlace, placeTnt, throwTnt, breakBeacon, teleportPlayers, openChest, spillingWaterLava, nameThrowTnT;
-    private String noGuild, onlyLeader, correctUsage, manageYourPermissions, hasNotGuild, playerOffline, noInYourGuild;
+    private String blocksBreak, blocksPlace, placeTnt, throwTnt, breakBeacon, teleportPlayers, openChest, spillingWaterLava, nameThrowTnT,
+            noGuild, onlyLeader, correctUsage, manageYourPermissions, hasNotGuild, playerOffline, noInYourGuild;
     private List<String> blockedCommands;
 
     public MainConfiguration(final GuildPermissionsPlugin plugin) {
