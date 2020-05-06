@@ -27,7 +27,6 @@ public class DatabaseManager {
                     this.plugin.getConfiguration().getMysqlUser(),
                     this.plugin.getConfiguration().getMysqlPass());
             this.update("CREATE TABLE IF NOT EXISTS `guildpermissions_users` (`uuid` varchar(36) PRIMARY KEY NOT NULL, " +
-                    "`name` varchar(16) NOT NULL," +
                     "`break_blocks` int(1) NOT NULL," +
                     "`place_blocks` int(1) NOT NULL," +
                     "`place_tnt` int(1) NOT NULL,"+
