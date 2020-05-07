@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public final class GuildPermissionsInventory {
 
-    private GuildPermissionsPlugin plugin;
+    private final GuildPermissionsPlugin plugin;
 
 
     public GuildPermissionsInventory(final GuildPermissionsPlugin plugin) {
