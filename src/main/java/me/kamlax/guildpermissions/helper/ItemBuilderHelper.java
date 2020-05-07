@@ -6,7 +6,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
-public class ItemBuilderHelper extends ItemStack {
+public class ItemBuilderHelper {
     private final ItemStack itemStack;
     private final ItemMeta itemMeta;
 
