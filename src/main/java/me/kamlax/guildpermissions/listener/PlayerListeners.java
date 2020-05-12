@@ -105,7 +105,7 @@ public class PlayerListeners implements Listener {
 
         if (user.hasGuild()) {
             if (guild.getMembers().contains(user)) {
-                if (event.hasItem() && event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName() && event.getItem().getItemMeta().getDisplayName().equals(ChatHelper.fixText(this.plugin.getConfiguration().getNameThrowTnT())) && event.getMaterial() == Material.TNT) {
+                if (event.getItem().getItemMeta().getDisplayName().equals(ChatHelper.fixText(this.plugin.getConfiguration().getNameThrowTnT()))) {
                     if (!userData.isPlace_tnt() && !user.isOwner()) {
                         event.setCancelled(true);
                         ChatHelper.sendMessage(player, this.plugin.getConfiguration().getThrowTnt());

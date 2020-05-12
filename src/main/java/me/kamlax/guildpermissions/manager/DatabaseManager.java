@@ -1,12 +1,10 @@
 package me.kamlax.guildpermissions.manager;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import me.kamlax.guildpermissions.GuildPermissionsPlugin;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseManager {
 
@@ -15,7 +13,6 @@ public class DatabaseManager {
 
     public DatabaseManager(final GuildPermissionsPlugin plugin) {
         this.plugin = plugin;
-        this.connect();
     }
 
     private void connect() {
