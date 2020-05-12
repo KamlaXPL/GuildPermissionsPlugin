@@ -28,11 +28,13 @@ public class GuildPermissionsCommand implements CommandExecutor {
         if (args.length == 0) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getCorrectUsage());
 
         final Player targetPlayer = Bukkit.getPlayer(args[0]);
+
+        if (!targetPlayer.isOnline()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getPlayerOffline());
+
         final User user = User.get(targetPlayer.getUniqueId());
 
         if (args[0].equalsIgnoreCase(player.getName())) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getManageYourPermissions());
         if (user == null || !user.hasGuild()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getHasNotGuild());
-        if (!user.isOnline()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getPlayerOffline());
         if (!user.getGuild().getTag().equalsIgnoreCase(owner.getGuild().getTag())) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getNoInYourGuild());
 
         player.openInventory(this.guildPermissionsPlugin.getGuildPermissionsInventory().createGuildPermissionInventory(targetPlayer));

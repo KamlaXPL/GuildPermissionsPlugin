@@ -41,9 +41,10 @@ public class InventoryClickListener implements Listener {
                     open_chest_lore = itemMeta.getLore(),
                     spilling_water_lava_lore = itemMeta.getLore();
 
+            final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
+
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aNiszczenie blokow na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setBreak_blocks(!userData.isBreak_blocks());
                 break_blocks_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isBreak_blocks() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(break_blocks_lore);
@@ -51,7 +52,6 @@ public class InventoryClickListener implements Listener {
             }
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aStawianie blokow na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setPlace_blocks(!userData.isPlace_blocks());
                 place_blocks_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isPlace_blocks() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(place_blocks_lore);
@@ -59,15 +59,13 @@ public class InventoryClickListener implements Listener {
             }
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aStawianie tnt na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setPlace_tnt(!userData.isPlace_tnt());
                 place_tnt_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isPlace_tnt() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(place_tnt_lore);
                 event.getCurrentItem().setItemMeta(itemMeta);
             }
-            if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatHelper.fixText("&8>> &aNiszczenie beacona na terenie gildii"))) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aNiszczenie beacona na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().equalsIgnoreCase(member.getUniqueId());
                 userData.setBreak_beacon(!userData.isBreak_beacon());
                 break_beacon_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isBreak_beacon() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(break_beacon_lore);
@@ -75,7 +73,6 @@ public class InventoryClickListener implements Listener {
             }
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aTeleportowanie osob na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setTeleport_players(!userData.isTeleport_players());
                 teleport_players_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isTeleport_players() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(teleport_players_lore);
@@ -83,7 +80,6 @@ public class InventoryClickListener implements Listener {
             }
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aOtwieranie skrzynek na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setOpen_chest(!userData.isOpen_chest());
                 open_chest_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isOpen_chest() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(open_chest_lore);
@@ -91,7 +87,6 @@ public class InventoryClickListener implements Listener {
             }
             if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ChatHelper.fixText("&8>> &aWylewanie lawy/wody na terenie gildii"))) {
                 if (!member.isOnline()) return;
-                final UserData userData = this.plugin.getUserManager().getUser(member.getUniqueId());
                 userData.setSpilling_water_lava(!userData.isSpilling_water_lava());
                 spilling_water_lava_lore.set(1, ChatHelper.fixText(" &8>> &7Kliknij, aby &" + (userData.isSpilling_water_lava() ? "czabrac uprawnienie" : "anadac uprawnienie")));
                 itemMeta.setLore(spilling_water_lava_lore);
