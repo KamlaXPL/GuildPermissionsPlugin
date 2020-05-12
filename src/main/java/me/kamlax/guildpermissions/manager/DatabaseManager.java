@@ -1,7 +1,5 @@
 package me.kamlax.guildpermissions.manager;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import me.kamlax.guildpermissions.GuildPermissionsPlugin;
 
 import java.sql.*;
@@ -13,6 +11,7 @@ public class DatabaseManager {
 
     public DatabaseManager(final GuildPermissionsPlugin plugin) {
         this.plugin = plugin;
+        this.connect();
     }
 
     private void connect() {
@@ -26,16 +25,15 @@ public class DatabaseManager {
             this.update("CREATE TABLE IF NOT EXISTS `guildpermissions_users` (`uuid` varchar(36) PRIMARY KEY NOT NULL, " +
                     "`break_blocks` int(1) NOT NULL," +
                     "`place_blocks` int(1) NOT NULL," +
-                    "`place_tnt` int(1) NOT NULL,"+
-                    "`break_beacon` int(1) NOT NULl,"+
-                    "`teleport_players` int(1) NOT NULL,"+
-                    "`open_chest` int(1) NOT NULL,"+
+                    "`place_tnt` int(1) NOT NULL," +
+                    "`break_beacon` int(1) NOT NULl," +
+                    "`teleport_players` int(1) NOT NULL," +
+                    "`open_chest` int(1) NOT NULL," +
                     "`spilling_water_lava` int(1) NOT NULL);");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-
 
     public void update(final String update) {
         try (final PreparedStatement preparedStatement = this.connection.prepareStatement(update)) {
