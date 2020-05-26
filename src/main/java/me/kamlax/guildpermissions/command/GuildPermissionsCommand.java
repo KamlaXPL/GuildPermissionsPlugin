@@ -20,6 +20,12 @@ public class GuildPermissionsCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String... args) {
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Ta komenda jest przeznaczona tylko dla graczy!");
+            return true;
+        }
+
         final Player player = (Player) sender;
         final User owner = User.get(player);
 

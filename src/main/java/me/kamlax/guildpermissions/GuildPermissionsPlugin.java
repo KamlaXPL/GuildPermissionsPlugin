@@ -18,14 +18,15 @@ public class GuildPermissionsPlugin extends JavaPlugin {
     private GuildPermissionsInventory guildPermissionsInventory;
 
     public void onEnable() {
+        new InventoryClickListener(this);
+        new PlayerListeners(this);
+        new PlayerTask(this).runTaskTimerAsynchronously(this, 200L, 100L);
+        getCommand("uprawnienia").setExecutor(new GuildPermissionsCommand(this));
+
         configuration = new MainConfiguration(this);
         databaseManager = new DatabaseManager(this);
         userManager = new UserManager(this);
         guildPermissionsInventory = new GuildPermissionsInventory(this);
-        new InventoryClickListener(this);
-        new PlayerListeners(this);
-        new PlayerTask(this).runTaskTimerAsynchronously(this, 60L, 100L);
-        getCommand("uprawnienia").setExecutor(new GuildPermissionsCommand(this));
     }
 
     public void onDisable() {

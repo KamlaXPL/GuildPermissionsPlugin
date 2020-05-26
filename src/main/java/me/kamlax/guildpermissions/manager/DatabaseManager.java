@@ -1,6 +1,7 @@
 package me.kamlax.guildpermissions.manager;
 
 import me.kamlax.guildpermissions.GuildPermissionsPlugin;
+import net.dzikoysk.funnyguilds.basic.user.UserUtils;
 
 import java.sql.*;
 
@@ -26,7 +27,7 @@ public class DatabaseManager {
                     "`break_blocks` int(1) NOT NULL," +
                     "`place_blocks` int(1) NOT NULL," +
                     "`place_tnt` int(1) NOT NULL," +
-                    "`break_beacon` int(1) NOT NULl," +
+                    "`break_beacon` int(1) NOT NULL," +
                     "`teleport_players` int(1) NOT NULL," +
                     "`open_chest` int(1) NOT NULL," +
                     "`spilling_water_lava` int(1) NOT NULL);");

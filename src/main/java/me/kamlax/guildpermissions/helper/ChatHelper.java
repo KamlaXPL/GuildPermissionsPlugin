@@ -15,7 +15,7 @@ public class ChatHelper {
     }
 
     @NotNull
-    public static String fixText(@NotNull String message) {
+    public static String fixText(@NotNull String message){
         return ChatColor.translateAlternateColorCodes('&', message
                 .replace(">>", "\u00BB")
                 .replace("<<", "\u00AB"));

@@ -93,7 +93,7 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
-    public void onPlayerInteract(final PlayerInteractEvent event) {
+    public void onPlayerThrowTnT(final PlayerInteractEvent event) {
         final Player player = event.getPlayer();
         final UserData userData = this.plugin.getUserManager().getUser(player.getUniqueId());
         final User user = User.get(player);
@@ -105,16 +105,11 @@ public class PlayerListeners implements Listener {
 
         if (user.hasGuild()) {
             if (guild.getMembers().contains(user)) {
-                if (event.getItem().getItemMeta().getDisplayName().equals(ChatHelper.fixText(this.plugin.getConfiguration().getNameThrowTnT()))) {
-                    if (!userData.isPlace_tnt() && !user.isOwner()) {
+                if (!userData.isPlace_tnt() && !user.isOwner()) {
+                    if (event.hasItem() && event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName() && event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.plugin.getConfiguration().getNameThrowTnT())) {
                         event.setCancelled(true);
                         ChatHelper.sendMessage(player, this.plugin.getConfiguration().getThrowTnt());
-                    }
-                }
-                if (event.getClickedBlock().getType() == Material.CHEST) {
-                    if (!userData.isOpen_chest() && !user.isOwner()) {
-                        event.setCancelled(true);
-                        ChatHelper.sendMessage(player, this.plugin.getConfiguration().getOpenChest());
+                        return;
                     }
                 }
             }
