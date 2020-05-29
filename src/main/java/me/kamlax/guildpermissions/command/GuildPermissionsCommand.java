@@ -1,8 +1,8 @@
 package me.kamlax.guildpermissions.command;
 
 import me.kamlax.guildpermissions.GuildPermissionsPlugin;
+import me.kamlax.guildpermissions.data.UserData;
 import me.kamlax.guildpermissions.helper.ChatHelper;
-import me.kamlax.guildpermissions.inventory.GuildPermissionsInventory;
 import net.dzikoysk.funnyguilds.basic.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -38,9 +38,10 @@ public class GuildPermissionsCommand implements CommandExecutor {
         if (!targetPlayer.isOnline()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getPlayerOffline());
 
         final User user = User.get(targetPlayer.getUniqueId());
+        final UserData userData = this.guildPermissionsPlugin.getUserManager().getUser(targetPlayer.getUniqueId());
 
         if (args[0].equalsIgnoreCase(player.getName())) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getManageYourPermissions());
-        if (user == null || !user.hasGuild()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getHasNotGuild());
+        if (user == null || userData == null || !user.hasGuild()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getHasNotGuild());
         if (!user.getGuild().getTag().equalsIgnoreCase(owner.getGuild().getTag())) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getNoInYourGuild());
 
         player.openInventory(this.guildPermissionsPlugin.getGuildPermissionsInventory().createGuildPermissionInventory(targetPlayer));

@@ -24,6 +24,12 @@ public class InventoryClickListener implements Listener {
 
     @EventHandler
     public void onClickInventory(final InventoryClickEvent event) {
+        if (event.getInventory().getName().equalsIgnoreCase(ChatHelper.fixText("&7Uprawnienia&8:&a "+event.getWhoClicked().getName()))) {
+            event.getWhoClicked().closeInventory();
+            ChatHelper.sendMessage((Player) event.getWhoClicked(), this.plugin.getConfiguration().getManageYourPermissions());
+            return;
+        }
+
         final String[] split;
         if ((split = event.getInventory().getName().split(" ")).length == 2 && split[0].equalsIgnoreCase(ChatHelper.fixText("&7Uprawnienia&8:&a"))) {
             event.setCancelled(true);
