@@ -27,7 +27,8 @@ public final class GuildPermissionsInventory {
 
             final ItemBuilderHelper break_blocks = new ItemBuilderHelper(Material.DIAMOND_PICKAXE, 1)
                     .setName("&8>> &aNiszczenie blokow na terenie gildii")
-                    .addLore(Arrays.asList("",
+                    .addLore(Arrays.asList(
+                            "",
                             " &8>> &7Kliknij, aby &" + (userData.isBreak_blocks() ? "czabrac uprawnienie" : "anadac uprawnienie"),
                             ""));
 
