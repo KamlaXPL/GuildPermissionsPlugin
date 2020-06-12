@@ -35,7 +35,7 @@ public class GuildPermissionsCommand implements CommandExecutor {
 
         final Player targetPlayer = Bukkit.getPlayer(args[0]);
 
-        if (!targetPlayer.isOnline()) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getPlayerOffline());
+        if (targetPlayer == null) return ChatHelper.sendMessage(player, this.guildPermissionsPlugin.getConfiguration().getPlayerOffline());
 
         final User user = User.get(targetPlayer.getUniqueId());
         final UserData userData = this.guildPermissionsPlugin.getUserManager().getUser(targetPlayer.getUniqueId());
