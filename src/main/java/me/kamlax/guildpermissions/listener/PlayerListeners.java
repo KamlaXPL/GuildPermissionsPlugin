@@ -117,8 +117,8 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
-    public void onChestOpen(final InventoryOpenEvent event) {
-        final Player player = (Player) event.getPlayer();
+    public void onChestOpen(final PlayerInteractEvent event) {
+        final Player player = event.getPlayer();
         final UserData userData = this.plugin.getUserManager().getUser(player.getUniqueId());
         final User user = User.get(player);
         final Region region = RegionUtils.getAt(player.getLocation());
@@ -126,12 +126,15 @@ public class PlayerListeners implements Listener {
         if (region == null) return;
 
         final Guild guild = region.getGuild();
-
-        if (user.hasGuild()) {
-            if (guild.getMembers().contains(user)) {
-                if (!userData.isOpen_chest() && !user.isOwner()) {
-                    event.setCancelled(true);
-                    ChatHelper.sendMessage(player, this.plugin.getConfiguration().getOpenChest());
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            if (event.getClickedBlock().getType() == Material.CHEST) {
+                if (user.hasGuild()) {
+                    if (guild.getMembers().contains(user)) {
+                        if (!userData.isOpen_chest() && !user.isOwner()) {
+                            event.setCancelled(true);
+                            ChatHelper.sendMessage(player, this.plugin.getConfiguration().getOpenChest());
+                        }
+                    }
                 }
             }
         }
